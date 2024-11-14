@@ -2,7 +2,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Charachter_Controller : MonoBehaviour
+public class CharachterController : MonoBehaviour
 {
     public GameObject Player;
     public float MoveSpeed = 3f;
