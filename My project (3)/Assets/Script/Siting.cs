@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterSitController : MonoBehaviour
 {
+    public GameObject Player;
+    public Vector3 SitPlace;
     public Transform sitPosition;
     public float sitDistance = 2f;
     public bool isSitting = false;
@@ -11,6 +13,7 @@ public class CharacterSitController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        Player = GameObject.Find("karakter");
     }
 
     void Update()
@@ -30,6 +33,7 @@ public class CharacterSitController : MonoBehaviour
 
     void SitOnChair()
     {
+        SitPlace = new Vector3(transform.position.x,transform.position.y,transform.position.z);
         transform.position = sitPosition.position;
         transform.rotation = sitPosition.rotation;
         isSitting = true;
@@ -45,7 +49,7 @@ public class CharacterSitController : MonoBehaviour
         if (characterController != null)
         {
             characterController.CanMove = true;
-            transform.position = new Vector3(-6f,0.25f,10f);
+            transform.position =SitPlace;
         }
     }
 
