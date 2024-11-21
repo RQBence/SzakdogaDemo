@@ -13,10 +13,10 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        Vector3 movement = Vector3.zero;
         if (CanMove)
         {
-            Vector3 movement = Vector3.zero;
-
+    
             if (Input.GetKey(KeyCode.W))
             {
                 movement += transform.forward * MoveSpeed;
@@ -35,6 +35,9 @@ public class CharacterController : MonoBehaviour
             }
 
             rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
+        }
+        else{
+            rb.linearVelocity = new(0,0,0);
         }
     }
 }
